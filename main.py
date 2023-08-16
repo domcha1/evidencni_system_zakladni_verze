@@ -1,12 +1,11 @@
 from evidencni_system import Evidencni_System
+from pojistenec import Pojistenec
 import asyncio
-#Vytvoreni instance tridy Evidencni_System
+
 evidencni_system = Evidencni_System()
-#Funkce main, obsahuje hlavni program. Je do budoucna predpripravena jako asynchroni.
+
 async def main():
-    #Porovnavaci promenna pro hlavni cyklus.
     pokracovani = True
-    #Hlavni cyklus programu.
     while (pokracovani == True):
         print("________________________")
         print("Evidence pojistenych")
@@ -15,8 +14,9 @@ async def main():
         print("1 - Pridat noveho pojisteneho")
         print("2 - Vypsat vsechny pojistene")
         print("3 - Vyhledat pojisteneho")
-        print("4 - Smazat pojisteneho")
-        print("5 - Konec")
+        print("4 - Upravit pojisteneho")
+        print("5 - Smazat pojisteneho")
+        print("6 - Konec")
 
         operace = int(input("Jakou operaci si prejete provest? Zadejte prosim operaci 1 - 5:\n"))
         match operace:
@@ -47,13 +47,29 @@ async def main():
                         print(f"Jméno: {pojistenec.jmeno}, Příjmení: {pojistenec.prijmeni}, Věk: {pojistenec.vek}, Mobil: {pojistenec.mobil}")
                 else:
                     print(nalezeni_pojistenci)
-
+            #Vim, ze to chce gettery a settery. Doslo mi to az kdyz jsem to dodelal. :D
             case 4:
+                print("Uprava pojistence:")
+                index_pojistence = int(input("Zadejte index pojistence, ktereho si prejete upravit:\n"))
+
+                print("Zadani upravy pojistence:\n")
+
+                jmeno = input("Zadejte jmeno pojistence:\n")
+                prijmeni = input("Zadejte prijmeni pojistence:\n")
+                vek = input("Zadejte vek pojistence:\n")
+                mobil = input("Zadejte cislo mobilniho telefonu pojistence:\n")
+
+                upraveny_uzivatel = Pojistenec(jmeno,prijmeni,vek,mobil)
+                zmena_uzivatele = evidencni_system.zmen_data_pojistence(index_pojistence, upraveny_uzivatel)
+
+                print(f"{zmena_uzivatele}")
+
+            case 5:
                 print("Smazani pojistence:")
                 index_pojistence = int(input("Zadejte index pojistence, ktereho si prejete smazat:\n"))
                 print(evidencni_system.smaz_pojistence(index_pojistence))
 
-            case 5:
+            case 6:
                 pokracovani = False
                 print("Evidence bude ukoncena za 5 sekund!\nPrejeme vam krasny zbytek dne. :)")
                 await asyncio.sleep(5)
