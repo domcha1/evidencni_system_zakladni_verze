@@ -18,7 +18,7 @@ async def main():
         print("5 - Smazat pojisteneho")
         print("6 - Konec")
 
-        operace = int(input("Jakou operaci si prejete provest? Zadejte prosim operaci 1 - 5:\n"))
+        operace = int(input("Jakou operaci si prejete provest? Zadejte prosim operaci 1 - 6:\n"))
         match operace:
             case 1:
                 print("Zadani noveho pojistence:\n")
