@@ -1,10 +1,12 @@
 from evidencni_system import Evidencni_System
 import asyncio
-
+#Vytvoreni instance tridy Evidencni_System
 evidencni_system = Evidencni_System()
-
+#Funkce main, obsahuje hlavni program. Je do budoucna predpripravena jako asynchroni.
 async def main():
+    #Porovnavaci promenna pro hlavni cyklus.
     pokracovani = True
+    #Hlavni cyklus programu.
     while (pokracovani == True):
         print("________________________")
         print("Evidence pojistenych")
