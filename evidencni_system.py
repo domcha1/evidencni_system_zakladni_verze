@@ -11,8 +11,7 @@ class Evidencni_System:
     # Funkce vypisujici vsechny ulozene pojistence ze seznamu self.pojistenci
     def vypis_vsechny_pojistence(self):
         for i, pojistenec in enumerate(self.pojistenci, 0):
-            print(f"Index: {i}\n {pojistenec}")
-            print()
+            print(f"Index: {i}\n {pojistenec}\n")
     #Funkce, ktera prohledava seznam self.pojistenci podle zadaneho jmena a  prijmeni (staci pouze jmeno/prijmeni/cast jmena)
     def najdi_pojistence_xy(self, hledane_jmeno, hledane_prijmeni):
         nalezeni_pojistenci = []
